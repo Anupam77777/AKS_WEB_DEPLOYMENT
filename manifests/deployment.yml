@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: akswebdeployment 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akswebdeployment
+  template:
+    metadata:
+      labels:
+        app: akswebdeployment 
+    spec:
+      containers:
+        - name: akswebdeployment 
+          image: ecomerce.azurecr.io/akswebdeployment
+          ports:
+          - containerPort: 80
